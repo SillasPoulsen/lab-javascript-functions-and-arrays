@@ -1,41 +1,123 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a, b) {
+  if(a > b) {
+    return a
+  } else if (b > a) {
+    return b
+  } else {
+    return b
+  }
+};
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(arr) {
+  let word = null;
+  for (let i = 0; i < arr.length; i++) {
+  if(!word || word.length < arr[i].length) {
+      word = arr[i]
+    } 
+  }
+  return word;
+}
 
-
+console.log(findLongestWord(words))
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numb) {
+  let sum = 0; 
+  
+  for(let i = 0; i < numb.length; i++) {
+    sum += numb[i]
+  }
+  return sum
+};
 
-
+console.log(sumNumbers(numbers))
 
 // Iteration #3.1 Bonus:
-function sum() {}
 
 
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(arr) {
+  let summed = 0; 
+  for(let i = 0; i < arr.length; i++) {
+    if(typeof(arr[i]) === "number") { 
+     summed += arr[i]
+  } else if(typeof(arr[i]) === "string") {
+    summed += arr[i].length
+  } else if(arr[i] === true) {
+    summed += 1
+  }
+  }
+  return summed ;
+}
+
+console.log(sum(mixedArr));
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const numnum = [];
+function averageNumbers(numbers) {
+  let average = 0;
+  if(numbers.length === 0) {
+    return null; 
+  }
+  for(let i = 0; i < numbers.length; i++ ) {
+    average += numbers[i];
+  }
+  average = average / numbers.length;
+  return average
+};
 
-function averageNumbers() {}
-
+console.log(averageNumbers(numnum));
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(word) { 
+  let average = null; 
+  if(word.length === 0) {
+    return null; 
+  }
+  for(let i = 0; i < word.length; i ++){
+    average += word[i].length
+  }
+  average = average / word.length;
+  return average
+}
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+
+function avg(arr) {
+  let average = null; 
+  if(arr.length === 0) {
+    return null; 
+  }
+  for(let i = 0; i < arr.length; i++) {
+    if(typeof(arr[i]) === "number") { 
+     average += arr[i]
+  } else if(typeof(arr[i]) === "string") {
+    average += arr[i].length
+  } else if(arr[i] === true) {
+    average += 1
+  }
+  }
+  average = average / arr.length;
+  return Number(average.toFixed(2));
+}
+
+
+
+console.log(avg(mixedArr));
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,15 +134,36 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
+function uniquifyArray(arr) {
+  let newArr = [];
+  if(arr.length === 0) {
+    return null;
+  }
+  for(let i = 0; i < arr.length; i++) {
+    if(newArr.indexOf(arr[i]) === -1) {
+      newArr.push(arr[i]);
+    } 
+  }
+  return newArr
+}
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
+function doesWordExist(arr, tofind) {
+  if(arr.length === 0) {
+    return null;
+  }
+  for(let i = 0; i < arr.length; i++) {
+    if(tofind !== arr[i]) {
+      continue
+    } else {
+      return true
+    }
+  }
+  return false;
+}
 
 
 // Iteration #7: Count repetition
@@ -78,9 +181,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
-
+function howManyTimes(arr, search) {
+  let words = 0; 
+  for(let i = 0; i < arr.length; i ++) {
+    if(arr[i] === search){
+      words++
+    } 
+  }
+  return words;
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -112,7 +221,7 @@ function greatestProduct() {}
 
 
 // The following is required to make unit tests work.
-/* Environment setup. Do not modify the below code. */
+//Environment setup. Do not modify the below code. 
 if (typeof module !== 'undefined') {
   module.exports = {
     maxOfTwoNumbers,
