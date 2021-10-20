@@ -31,7 +31,6 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numb) {
   let sum = 0; 
-  
   for(let i = 0; i < numb.length; i++) {
     sum += numb[i]
   }
@@ -48,6 +47,9 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 function sum(arr) {
   let summed = 0; 
   for(let i = 0; i < arr.length; i++) {
+    if(typeof(arr[i]) === "object") {
+      throw("Unsupported data type sir or ma'am")
+    }
     if(typeof(arr[i]) === "number") { 
      summed += arr[i]
   } else if(typeof(arr[i]) === "string") {
